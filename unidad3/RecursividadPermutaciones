@@ -1,0 +1,15 @@
+def permutaciones (lista):
+    if len(lista) == 0:
+        return []
+    if len(lista) == 1:
+        return [lista]
+    l = []
+    for i in range(len(lista)):
+        m = lista[i]
+        lista_remanent = lista[:i] + lista[i+1:]
+        for p in permutaciones(lista_remanent):
+            l.append([m] + p)
+    return l
+
+lista = [1,2,3,4]
+print(permutaciones(lista))
